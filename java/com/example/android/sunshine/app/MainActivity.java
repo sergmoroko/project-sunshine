@@ -3,6 +3,7 @@ package com.example.android.sunshine.app;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,23 +18,24 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
+                    .add(R.id.container, new ForecastFragment())
                     .commit();
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        getMenuInflater().inflate(R.menu.main, menu);
+//        return true;
+//    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -48,38 +50,5 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-
-            // Mock data
-            ArrayList<String> fakeList = new ArrayList<>();
-            fakeList.add("Today - Sunny, 18/20");
-            fakeList.add("Tomorrow - Sunny, 18/23");
-            fakeList.add("Weds - Sunny, 18/22");
-            fakeList.add("Thurs - Sunny, 13/22");
-            fakeList.add("Frids - Sunny, 16/21");
-            fakeList.add("Sats - Sunny, 20/26");
-            fakeList.add("Suns - Sunny, 19/20");
-
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity(), R.layout.list_item_forecast,
-                    R.id.list_item_forecast_textview, fakeList);
-
-            ListView listView = (ListView) rootView.findViewById(R.id.list_view_forecast);
-            listView.setAdapter(arrayAdapter);
-
-            return rootView;
-        }
     }
 }
