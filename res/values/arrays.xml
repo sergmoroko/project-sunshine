@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="temperature_units">
+        <item>@string/metric_units</item>
+        <item>@string/imperial_units</item>
+    </string-array>
+    <string-array name="temperature_units_values">
+        <item>@string/metric_units_value</item>
+        <item>@string/imperial_units_value</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,34 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <EditTextPreference
+        android:title="@string/location_city"
+        android:key="@string/location_city_key"
+        android:defaultValue="@string/default_city_name"
+        android:inputType="text"
+        android:singleLine="true">
+
+    </EditTextPreference>
+
+    <EditTextPreference
+        android:title="@string/location_country_code"
+        android:key="@string/location_country_key"
+        android:defaultValue="@string/default_country_code"
+        android:inputType="text"
+        android:singleLine="true">
+
+    </EditTextPreference>
+
+    <ListPreference
+        android:title="@string/measuring_units"
+        android:key="@string/temperature_units_key"
+        android:entries="@array/temperature_units"
+        android:entryValues="@array/temperature_units_values"
+        android:defaultValue="@string/metric_units">
+
+    </ListPreference>
+
+</PreferenceScreen>
